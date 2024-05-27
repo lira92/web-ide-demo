@@ -1,0 +1,63 @@
+ContextMap BancoDigital {
+	contains Pagamento
+	contains Emprestimo
+	contains Investimento
+	contains ContaCorrente
+	contains Backoffice
+	contains Onboarding
+	contains Notificacoes
+
+	Pagamento [D,ACL]<-[U,OHS,PL] ContaCorrente
+
+	Emprestimo [D,ACL]<-[U,OHS,PL] ContaCorrente
+
+	Investimento [D,ACL]<-[U,OHS,PL] ContaCorrente
+
+	Onboarding [D]<-[U,OHS,PL] ContaCorrente
+
+	Investimento [D,C]<-[U,S] Backoffice
+
+	Emprestimo [D,C]<-[U,S] Backoffice
+
+	Backoffice [D,C]<-[U,S] Onboarding
+
+	ContaCorrente [D]<-[U,OHS,PL] Notificacoes 
+
+	Pagamento [D]<-[U,OHS,PL] Notificacoes 
+
+	Investimento [D]<-[U,OHS,PL] Notificacoes
+
+	Emprestimo [D]<-[U,OHS,PL] Notificacoes
+
+	Backoffice [D]<-[U] Emprestimo 
+}
+
+
+BoundedContext Pagamento {
+	
+}
+
+BoundedContext Emprestimo {
+	
+}
+
+BoundedContext Investimento {
+	
+}
+
+BoundedContext ContaCorrente {
+	
+}
+
+BoundedContext Backoffice {
+	
+}
+
+BoundedContext Onboarding {
+	
+}
+
+BoundedContext Notificacoes {
+	
+}
+
